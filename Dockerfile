@@ -8,9 +8,9 @@ ENV CGO_ENABLED=0
 
 RUN go get -d -v ./...
 RUN go install -v ./...
-RUN go build -v -o app
+RUN go build -v -o go-app
 
 # Run stage
 FROM alpine:latest
 COPY --from=build go/src/app/ app/
-CMD ["./app/app"]
+CMD ["./app/go-app"]
