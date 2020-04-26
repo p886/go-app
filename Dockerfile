@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.13 as build
+FROM golang:1.14.2 as build
 
 WORKDIR /go/src/app
 COPY . .
@@ -11,6 +11,6 @@ RUN go install -v ./...
 RUN go build -v -o go-app
 
 # Run stage
-FROM alpine:latest
+FROM alpine:3.11
 COPY --from=build go/src/app/ app/
 CMD ["./app/go-app"]
