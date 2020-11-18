@@ -8,7 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World!"))
+		w.Write([]byte("Hello World! This is an update"))
 	})
 
 	port := os.Getenv("PORT")
