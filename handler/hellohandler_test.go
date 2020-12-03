@@ -21,6 +21,7 @@ func TestHelloHandler(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	assert.Equal(t, recorder.Result().Header.Get("Content-Type"), "text/plain")
 	assert.Equal(t, recorder.Result().Status, "200 OK")
 	assert.Equal(t, responseBody, []byte("Hello World! This is an update"))
 }

@@ -12,5 +12,7 @@ func NewHelloHandler() HelloHandler {
 }
 
 func (h HelloHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Content-Type", "text/plain")
 	w.Write([]byte("Hello World! This is an update"))
+	w.WriteHeader(http.StatusOK)
 }
