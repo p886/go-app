@@ -4,12 +4,12 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/p886/go-app/handler"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World! This is an update"))
-	})
+	http.Handle("/", handler.HelloHandler{})
 
 	port := os.Getenv("PORT")
 
